@@ -5,13 +5,29 @@ pic = imageio.imread('paju.jpeg')
 
 plt.figure(figsize = (5,5))
 
-plt.imshow(pic)
+def redLayer():
+    plt.imshow(pic[ : , : , 0])
 
-plt.title('R channel')
-plt.imshow(pic[ : , : , 2])
-print(pic[2])
+def greenLayer():
+    plt.imshow(pic[ : , : , 1])
 
-print('Value of only R channel {}'.format(pic[ 1, 1, 0]))
-print('Value of only G channel {}'.format(pic[ 1, 1, 1]))
-print('Value of only B channel {}'.format(pic[ 1, 1, 2]))
+def blueLayer():
+    plt.imshow(pic[ : , : , 2])
+
+def showImg():
+    plt.imshow(pic)
+
+def redFilter(num):
+    val = (num *255)/100
+    pic[:, :, 0] = val
+
+def greenFilter(num):
+    val = (num *255)/100
+    pic[:, :, 1] = val
+
+def blueFilter(num):
+    val = (num *255)/100
+    pic[:, :, 2] = val
+
+showImg()
 plt.show()
