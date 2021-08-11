@@ -1,4 +1,6 @@
 import imageio
+import numpy as np
+import random
 import matplotlib.pyplot as plt
 
 pic = imageio.imread('paju.jpeg')
@@ -29,5 +31,18 @@ def blueFilter(num):
     val = (num *255)/100
     pic[:, :, 2] = val
 
-showImg()
-plt.show()
+def gradient(color):
+    picture = []
+    for x in range(0, 250):
+        arrayx = []
+        for y in range(0, 250):
+            arrayy = []
+            for z in range(0, 3):
+                if(z == color):
+                    val = (x * y * 3) / (5 * 10 ** 4 * 3)
+                else:
+                    val = 0
+                arrayy.append(val)
+            arrayx.append(arrayy)
+        picture.append(arrayx)
+    return np.array(picture)
